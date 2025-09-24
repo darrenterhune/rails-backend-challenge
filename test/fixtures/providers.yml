@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Great Provider Inc.
+  email: greatprovider@example.com
+
+two:
+  name: Other Provider LLC.
+  email: otherprovider@example.com
