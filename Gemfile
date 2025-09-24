@@ -47,3 +47,5 @@ group :development, :test do
 end
 
 gem "dotenv-rails", "~> 3.1"
+
+gem "pry", "~> 0.15.2"
