@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_24_193058) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_24_195001) do
+  create_table "availabilities", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string "source"
+    t.integer "provider_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_availabilities_on_provider_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -24,4 +34,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_24_193058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "availabilities", "providers"
 end
