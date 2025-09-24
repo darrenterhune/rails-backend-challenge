@@ -1,4 +1,5 @@
 class Availability < ApplicationRecord
+  has_one :appointment, dependent: :destroy
   belongs_to :provider
 
   validates :source, presence: true

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  provider: one
+  availability: one
+  deleted_at: null
+
+two:
+  client: two
+  provider: two
+  availability: two
+  deleted_at: null

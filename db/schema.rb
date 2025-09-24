@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_24_195001) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_24_202400) do
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "deleted_at"
+    t.integer "client_id", null: false
+    t.integer "provider_id", null: false
+    t.integer "availability_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["availability_id"], name: "index_appointments_on_availability_id"
+    t.index ["client_id", "provider_id", "availability_id"], name: "index_appointments_on_client_provider_availability", unique: true
+    t.index ["client_id"], name: "index_appointments_on_client_id"
+    t.index ["provider_id"], name: "index_appointments_on_provider_id"
+  end
+
   create_table "availabilities", force: :cascade do |t|
     t.datetime "starts_at"
     t.datetime "ends_at"
@@ -35,5 +48,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_24_195001) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "appointments", "availabilities"
+  add_foreign_key "appointments", "clients"
+  add_foreign_key "appointments", "providers"
   add_foreign_key "availabilities", "providers"
 end

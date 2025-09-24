@@ -6,13 +6,12 @@ one:
   source: Calendly
   provider: one
   
-
 two:
   starts_at: <%= 2.hours.from_now %>
   ends_at: <%= 3.hours.from_now %>
   source: Calendly
   provider: two
-
+  
 three:
   starts_at: <%= 5.hours.from_now %>
   ends_at: <%= 6.hours.from_now %>
